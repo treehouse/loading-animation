@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: rgb(32, 36, 53);
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid rgb(32, 36, 53);
+    background-color: rgb(74, 177, 250);
+    animation: jump 0.8s ease-in-out infinite alternate;
+  }
+}
+
+@for $i from 1 through 5 {
+  .dot:nth-child(#{$i}) {
+    animation-delay: $i * 0.1s;
+  }
+}
+
+@keyframes jump {
+  100% {
+    transform: translateY(-5rem) scale(1.9);
+    background-color: rgb(188, 111, 251);
+  }
+}
